@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace ConsoleApp1
 {
-    internal class Program
+    internal class Program2
     {
         public static void print(params object[] args)
         {
@@ -25,7 +25,7 @@ namespace ConsoleApp1
             }
         }
 
-        static void Main(string[] args)
+        static void OldMain(string[] args)
         {
             // Создаем объект Stopwatch
             Stopwatch stopwatch = new Stopwatch();
@@ -54,16 +54,16 @@ namespace ConsoleApp1
             {
                 // Выводим время выполнения в секундах
                 print("\nВремя выполнения: " + stopwatch.ElapsedMilliseconds / 1000 + " секунд\n");
-            }         
+            }
 
-            SaveTextToFile();            
+            SaveTextToFile();
         }
 
         // Настраиваемые параметры:
 
         // Максимальное количество вложенных папок, которое будет выведено
         // Если = 0, то без ограничения
-        static int maxCountRecurse = 0;
+        static int maxCountRecurse = 5;
 
         static bool printLvlId = false;                 // Печатать ли номер уровня вложенной папки?
         static bool printAccessReadFolderError = true;  // Печатать ли предупреждения, когда папка недоступна для чтения?
@@ -92,12 +92,12 @@ namespace ConsoleApp1
                 if(currRecCount > MaxLvlFromRecurse) MaxLvlFromRecurse = currRecCount;
 
                 // Выводим названия всех каталогов
-                foreach (string directory in directories)
+                Parallel.ForEach(directories, directory =>
                 {
                     string currDirectory = Path.GetFileName(directory);
 
                     string spaseLvl = "";
-                    for (int i = 0; i < currRecCount*2; i++) 
+                    for (int i = 0; i < currRecCount * 2; i++)
                     {
                         if (whyPrintSpaseLvl == true)
                         {
@@ -122,7 +122,7 @@ namespace ConsoleApp1
                         string newRootPath = Path.Combine(rootPath, currDirectory);     // Построение нового пути
                         RecurseDisplFoldersFromDiskC(newRootPath, currRecCount + 1);    // Рекурсивный вызов с новыми аргументами
                     }
-                }
+                });
             }
             catch (UnauthorizedAccessException)
             {

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\orlov\\Desktop\\\u041F\u0440\u043E\u0435\u043A\u0442\u044B\\3_\u0414\u0440\u0443\u0433\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438 \u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\ConsoleApp1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A4872432-F856-484E-8806-EC5098825B28}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\orlov\\desktop\\\u043F\u0440\u043E\u0435\u043A\u0442\u044B\\3_\u0434\u0440\u0443\u0433\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438 \u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\consoleapp1\\consoleapp1\\program2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4872432-F856-484E-8806-EC5098825B28}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\program2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A4872432-F856-484E-8806-EC5098825B28}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\orlov\\desktop\\\u043F\u0440\u043E\u0435\u043A\u0442\u044B\\3_\u0434\u0440\u0443\u0433\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438 \u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\consoleapp1\\consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4872432-F856-484E-8806-EC5098825B28}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -31,12 +35,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program2.cs",
+              "DocumentMoniker": "C:\\Users\\orlov\\Desktop\\\u041F\u0440\u043E\u0435\u043A\u0442\u044B\\3_\u0414\u0440\u0443\u0433\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438 \u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\ConsoleApp1\\ConsoleApp1\\Program2.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Program2.cs",
+              "ToolTip": "C:\\Users\\orlov\\Desktop\\\u041F\u0440\u043E\u0435\u043A\u0442\u044B\\3_\u0414\u0440\u0443\u0433\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438 \u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\ConsoleApp1\\ConsoleApp1\\Program2.cs*",
+              "RelativeToolTip": "ConsoleApp1\\Program2.cs*",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowEEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T07:46:00.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\orlov\\Desktop\\\u041F\u0440\u043E\u0435\u043A\u0442\u044B\\3_\u0414\u0440\u0443\u0433\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438 \u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\ConsoleApp1\\ConsoleApp1\\Program.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\Program.cs",
               "ToolTip": "C:\\Users\\orlov\\Desktop\\\u041F\u0440\u043E\u0435\u043A\u0442\u044B\\3_\u0414\u0440\u0443\u0433\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438 \u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\ConsoleApp1\\ConsoleApp1\\Program.cs",
               "RelativeToolTip": "ConsoleApp1\\Program.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAowBkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowBsAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-15T06:17:43.375Z",
               "EditorCaption": ""
