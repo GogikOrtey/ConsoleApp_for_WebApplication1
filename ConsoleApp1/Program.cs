@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Security.Principal;
 
 namespace ConsoleApp1
 {
@@ -33,6 +34,7 @@ namespace ConsoleApp1
             // Запускаем таймер
             stopwatch.Start();
 
+            UndoStatsPrint();
 
             // Основная процедура рекурсивного поиска вложенных папок, и вывода их названий в консоль
             RecurseDisplFoldersFromDiskC();
@@ -41,9 +43,6 @@ namespace ConsoleApp1
             stopwatch.Stop();
 
             PrintStats();
-
-            // Выводим текущую время и дату
-            Console.WriteLine("\nТекущая дата и время: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
 
             if (stopwatch.ElapsedMilliseconds / 1000 > 120)
             {
@@ -63,7 +62,7 @@ namespace ConsoleApp1
 
         // Максимальное количество вложенных папок, которое будет выведено
         // Если = 0, то без ограничения
-        static int maxCountRecurse = 0;
+        static int maxCountRecurse = 1; ////////////////////////////////////// Потом поставить 0
 
         static bool printLvlId = false;                 // Печатать ли номер уровня вложенной папки?
         static bool printAccessReadFolderError = true;  // Печатать ли предупреждения, когда папка недоступна для чтения?
@@ -79,11 +78,6 @@ namespace ConsoleApp1
         // Основная процедура рекурсивного поиска вложенных папок, и вывода их названий в консоль
         static void RecurseDisplFoldersFromDiskC(string rootPath = @"C:\", int currRecCount = 0)
         {
-            if (currRecCount == 0)
-            {
-                print("Все доступные папки и подпапки с диска С:\n");
-            }
-
             try
             {
                 // Получаем массив имен всех каталогов в корне диска С
@@ -130,6 +124,31 @@ namespace ConsoleApp1
                 if(printAccessReadFolderError)
                     print($"\n🛑 Нет доступа к папке: {rootPath}\n");
             }
+        }
+
+        public static void UndoStatsPrint()
+        {           
+            // Выводим текущую время и дату
+            print("\nТекущая дата и время: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + "\n");
+
+            // Получаем текущее имя пользователя
+            string username = Environment.UserName;
+
+            // Получаем права текущего пользователя
+            WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(identity);
+            string permissions = principal.IsInRole(WindowsBuiltInRole.Administrator) ? "Администратор" : "Обычный пользователь";
+
+            Console.WriteLine("Выполняем сканирование диска C от имени пользователя: " + username + ", его права: " + permissions + "\n");
+
+            if (maxCountRecurse != 0) 
+            {
+                print("Ограничение рекурсии: Максимум " + maxCountRecurse + " уровень" + "\n");
+            }
+
+            print("Все доступные папки и подпапки с диска С:\n");
+
+            print("_______________________\n");
         }
 
         // Выводит статистику по количеству строк и максимально глубокому уровню
