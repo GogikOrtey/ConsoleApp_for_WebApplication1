@@ -15,7 +15,7 @@ namespace ConsoleApp1
                 OutTextToTxtFiles += arg + "\n";    // Дополнительно весь текст, который выводится - буферизуется, и дальше записывается в текстовый файл
                 AllShowStrings++;                   // Также считаются значения для статистики
             }
-        }        
+        }         
 
         public static void print_adjacent(params object[] args)
         {
