@@ -23,8 +23,16 @@
         // Если = 0, то без ограничения
         static int maxCountRecurse = 1;
 
+        static bool printLvlId = false; // Печатать ли номер уровня вложенной папки?
+        static bool printAccessReadFolderError = true; // Печатать ли предупреждения, когда папка недоступна для чтения?
+
         static void RecurseDisplFoldersFromDiskC(string rootPath = @"C:\", int currRecCount = 0)
         {
+            if (currRecCount == 0)
+            {
+                Console.WriteLine("Все доступные папки и подпапки с диска С:\n");
+            }
+
             try
             {
                 // Получаем массив имен всех каталогов в корне диска С
@@ -34,7 +42,18 @@
                 foreach (string directory in directories)
                 {
                     string currDirectory = Path.GetFileName(directory);
-                    Console.WriteLine("lvl = " + currRecCount + " : " + currDirectory);
+
+                    string spaseLvl = "";
+                    for (int i = 0; i < currRecCount; i++) 
+                    { 
+                        spaseLvl += "  ";
+                    }
+
+                    if (printLvlId) 
+                        Console.Write("lvl = " + currRecCount + " : ");
+
+                    Console.WriteLine(spaseLvl + currDirectory);
+
 
                     if ((maxCountRecurse > 0 && currRecCount < maxCountRecurse)         // Если количество рекурсий в допустимом диапазоне
                         || (maxCountRecurse == 0))                                      // Или если нет ограничение на количество рекурсий
@@ -47,7 +66,8 @@
             catch (UnauthorizedAccessException)
             {
                 // Игнорируем папки, к которым нет доступа
-                Console.WriteLine($"🛑 Нет доступа к папке: {rootPath}");
+                if(printAccessReadFolderError) 
+                    Console.WriteLine($"\n🛑 Нет доступа к папке: {rootPath}\n");
             }
         }
 
