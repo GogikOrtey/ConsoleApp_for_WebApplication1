@@ -19,12 +19,16 @@
             RecurseDisplFoldersFromDiskC();
         }
 
+        // Настраиваемые параметры:
+
         // Максимальное количество вложенных папок, которое будет выведено
         // Если = 0, то без ограничения
-        static int maxCountRecurse = 1;
+        static int maxCountRecurse = 2;
 
         static bool printLvlId = false; // Печатать ли номер уровня вложенной папки?
         static bool printAccessReadFolderError = true; // Печатать ли предупреждения, когда папка недоступна для чтения?
+        static bool whyPrintSpaseLvl = true; // Выводить пробелы как уровни для папок? (если = false), то они будут выводится со спецсимволами типо └──
+
 
         static void RecurseDisplFoldersFromDiskC(string rootPath = @"C:\", int currRecCount = 0)
         {
@@ -44,9 +48,17 @@
                     string currDirectory = Path.GetFileName(directory);
 
                     string spaseLvl = "";
-                    for (int i = 0; i < currRecCount; i++) 
-                    { 
-                        spaseLvl += "  ";
+                    for (int i = 0; i < currRecCount*2; i++) 
+                    {
+                        if (whyPrintSpaseLvl == true)
+                        {
+                            spaseLvl += " ";
+                        }
+                        else
+                        {
+                            if (i == 0) spaseLvl = "└";
+                            else spaseLvl += "─";
+                        }
                     }
 
                     if (printLvlId) 
