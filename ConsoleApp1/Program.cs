@@ -21,27 +21,33 @@
 
         // Максимальное количество вложенных папок, которое будет выведено
         // Если = 0, то без ограничения
-        static int maxCountRecurse = 3;
+        static int maxCountRecurse = 1;
 
         static void RecurseDisplFoldersFromDiskC(string rootPath = @"C:\", int currRecCount = 0)
         {
-            // Получаем массив имен всех каталогов в корне диска С
-            string[] directories = Directory.GetDirectories(rootPath);
-
-            // Выводим названия всех каталогов
-            foreach (string directory in directories)
+            try
             {
-                string currDirectory = Path.GetFileName(directory);
-                Console.WriteLine("lvl = " + currRecCount + " : " + currDirectory);
+                // Получаем массив имен всех каталогов в корне диска С
+                string[] directories = Directory.GetDirectories(rootPath);
 
-                if ((maxCountRecurse > 0 && maxCountRecurse < currRecCount) // Если количество рекурсий в допустимом диапазоне
-                    || (maxCountRecurse == 0))                              // Или если нет ограничение на количество рекурсий
+                // Выводим названия всех каталогов
+                foreach (string directory in directories)
                 {
-                    rootPath += currDirectory;                              // Добавляем название текущей папки к корню  
+                    string currDirectory = Path.GetFileName(directory);
+                    Console.WriteLine("lvl = " + currRecCount + " : " + currDirectory);
 
-                    currRecCount++;                                         // Добавляем уровень рекурсии
-                    RecurseDisplFoldersFromDiskC(rootPath, currRecCount);   // И вызываем эту же процедуру, с новыми аргументами
+                    if ((maxCountRecurse > 0 && currRecCount < maxCountRecurse)         // Если количество рекурсий в допустимом диапазоне
+                        || (maxCountRecurse == 0))                                      // Или если нет ограничение на количество рекурсий
+                    {
+                        string newRootPath = Path.Combine(rootPath, currDirectory);     // Построение нового пути
+                        RecurseDisplFoldersFromDiskC(newRootPath, currRecCount + 1);    // Рекурсивный вызов с новыми аргументами
+                    }
                 }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                // Игнорируем папки, к которым нет доступа
+                Console.WriteLine($"🛑 Нет доступа к папке: {rootPath}");
             }
         }
 
