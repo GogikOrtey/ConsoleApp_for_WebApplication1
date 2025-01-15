@@ -6,13 +6,14 @@ namespace ConsoleApp1
 {
     internal class Program
     {
+        // Написал свои процедуры для вывода текста в консоль
         public static void print(params object[] args)
         {
             foreach (var arg in args)
             {
                 Console.WriteLine(arg);
-                OutTextToTxtFiles += arg + "\n";
-                AllShowStrings++;
+                OutTextToTxtFiles += arg + "\n";    // Дополнительно весь текст, который выводится - буферизуется, и дальше записывается в текстовый файл
+                AllShowStrings++;                   // Также считаются значения для статистики
             }
         }        
 
@@ -72,8 +73,8 @@ namespace ConsoleApp1
 
         // Статистика:
 
-        public static int AllShowStrings = 0;
-        public static int MaxLvlFromRecurse = 0;
+        public static int AllShowStrings = 0;           // Всего строк было выведено
+        public static int MaxLvlFromRecurse = 0;        // Максимальный уровень рекурсии (кол-ва вложенных папок друг в друга)
 
         // Основная процедура рекурсивного поиска вложенных папок, и вывода их названий в консоль
         static void RecurseDisplFoldersFromDiskC(string rootPath = @"C:\", int currRecCount = 0)
@@ -126,6 +127,7 @@ namespace ConsoleApp1
             }
         }
 
+        // Это выводится перед основной процедурой
         public static void UndoStatsPrint()
         {           
             // Выводим текущую время и дату
