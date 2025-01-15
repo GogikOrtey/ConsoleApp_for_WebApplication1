@@ -12,3 +12,4 @@ C:\Users\orlov\Desktop\Проекты\3_Другие задачи и проек�
 C:\Users\orlov\Desktop\Проекты\3_Другие задачи и проекты\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.pdb
 C:\Users\orlov\Desktop\Проекты\3_Другие задачи и проекты\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.genruntimeconfig.cache
 C:\Users\orlov\Desktop\Проекты\3_Другие задачи и проекты\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\ref\ConsoleApp1.dll
+C:\Users\orlov\Desktop\Проекты\3_Другие задачи и проекты\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.sourcelink.json
